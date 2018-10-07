@@ -1,0 +1,30 @@
+<div class="message" *ngIf="message != null"
+     [ngClass]="[message.userId === user.id ? 'this-user' : 'that-user', message.userId === user.id ? 'pull-right' : 'pull-left']"
+     (click)="showMessageOptions = !showMessageOptions">
+  {{message.messageText}}
+</div>
+<div id="messageOptions"
+     [ngClass]="[message.userId === user.id ? 'this-user' : 'that-user', message.userId === user.id ? 'pull-right' : 'pull-left']"
+     *ngIf="showMessageOptions">
+  <div>
+    <table class="table">
+      <tbody>
+        <tr>
+          <td><a (click)="reactToMessage(1)">Angry</a>: {{angryReactions}}</td>
+          <td><a (click)="reactToMessage(2)">Sad</a>: {{sadReactions}}</td>
+          <td><a (click)="reactToMessage(3)">Smile</a>: {{smileReactions}}</td>
+          <td><a (click)="reactToMessage(4)">Laugh</a>: {{laughReactions}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="message.userId === user.id && !areYouSure">
+    <a (click)="areYouSure = !areYouSure" class="text-danger">Delete Message</a><br />
+  </div>
+  <div *ngIf="message.userId === user.id && areYouSure">
+    Are you sure? 
+    <a (click)="deleteMessage()" class="text-danger">Yes</a>
+    <a (click)="showMessageOptions = false; areYouSure = false; reactToMessage = false" class="text-primary">No</a><br />
+  </div>
+  <div><a (click)="showMessageOptions = false; areYouSure = false; reactToMessage = false">Cancel</a></div>
+</div>

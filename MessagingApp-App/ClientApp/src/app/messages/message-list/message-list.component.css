@@ -1,0 +1,50 @@
+.message {
+  margin-bottom: 15px;
+  word-break: break-all;
+  cursor: pointer;
+}
+
+td {
+  border-top: none !important;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.this-user {
+  border: 1px solid #666;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  padding: 10px;
+  background-color: #c3c3c3;
+}
+
+.that-user {
+  border: 1px solid #666;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+#messageOptions {
+  position: absolute;
+  border: 1px #666;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  background-color: #efefef;
+  top: 50%;
+  left: 50%;
+  height: 140px;
+  width: 300px;
+  margin: -70px 0 0 -150px;
+  text-align: center;
+}
+
+#messageOptions.that-user {
+  height: 110px;
+}
+
+#messageOptions > div {
+  padding-top: 10px;
+}

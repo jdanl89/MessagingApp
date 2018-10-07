@@ -1,0 +1,24 @@
+<div id="loginOrCreate" class="container">
+  <div class="col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+    <form id="loginForm" *ngIf="!loggedIn()" #loginForm="ngForm" (ngSubmit)="login()">
+      <h2 class="text-center text-primary">Login</h2>
+      <br />
+      <div class="form-group">
+        <input type="text" #username="ngModel" placeholder="Username" class="form-control" required name="username" [(ngModel)]="model.username">
+      </div>
+      <div class="form-group">
+        <input type="password" #password="ngModel" placeholder="Password" class="form-control" required name="password" [(ngModel)]="model.password">
+      </div>
+      <div class="form-group text-center">
+        <button type="submit" [disabled]="!loginForm.valid" class="btn btn-success">Sign in</button>
+      </div>
+      <br />
+      <br />
+      <br />
+      <br />
+    </form>
+
+    <app-user-create *ngIf="!loggedIn()"></app-user-create>
+  </div>
+</div>
+<app-message-list *ngIf="loggedIn()"></app-message-list>

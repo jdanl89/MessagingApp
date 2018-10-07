@@ -1,0 +1,93 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h1>Your Profile</h1>
+    </div>
+    <div class="col-sm-8">
+      <div class="alert alert-info" [hidden]="(editForm != null && !editForm.dirty) || !changePasswordForm.dirty">
+        <p>
+          <strong>Information:</strong> You have made changes. Any unsaved changes will be lost!
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="tab-panel">
+        <tabset class="user-tabset">
+          <tab heading="Your Profile">
+            <div *ngIf="!editProfile">
+              <div class="form-group" *ngIf="!editProfile">
+                <label for="username">Username</label>
+                <div id="username" class="form-control no-border">{{user.username}}</div>
+              </div>
+
+              <div class="form-group text-center">
+                <button class="btn btn-warning" type="button" (click)="editProfile = !editProfile">Edit Profile</button>
+              </div>
+            </div>
+            <form [formGroup]="editForm" *ngIf="editProfile && editForm != null" (ngSubmit)="updateUser()">
+              <div class="form-group" [ngClass]="{'has-error': editForm.get('username').errors && editForm.get('username').touched}">
+                <label for="usernameEdit">Username</label>
+                <input id="usernameEdit" class="form-control" autocomplete="given-name" placeholder="First Name" formControlName="username">
+                <span class="help-block" *ngIf="editForm.get('username').touched && editForm.get('username').hasError('required')">Username is Required</span>
+              </div>
+
+              <div class="form-group text-center">
+                <button class="btn btn-success" [disabled]="!editForm.valid" type="submit">Update</button>
+                <button class="btn btn-default" type="button" (click)="editForm.reset()">Clear</button>
+                <button class="btn btn-danger" type="button" (click)="editProfile = !editProfile">Cancel</button>
+              </div>
+            </form>
+          </tab>
+          <tab heading="Change Password">
+            <form [formGroup]="changePasswordForm" (ngSubmit)="changePassword()">
+              <div class="form-group" [ngClass]="{'has-error': changePasswordForm.get('username').errors && changePasswordForm.get('username').touched}">
+                <input type="text" class="form-control" autocomplete="username" placeholder="Username" formControlName="username" />
+                <span class="help-block" *ngIf="changePasswordForm.get('username').hasError('required') && changePasswordForm.get('username').touched">
+                  Username is required
+                </span>
+              </div>
+
+              <div class="form-group" [ngClass]="{'has-error': changePasswordForm.get('oldPassword').errors && changePasswordForm.get('oldPassword').touched}">
+                <input type="password" class="form-control" autocomplete="current-password" placeholder="Old Password" formControlName="oldPassword" />
+                <span class="help-block" *ngIf="changePasswordForm.get('oldPassword').hasError('required') && changePasswordForm.get('oldPassword').touched">
+                  Old password is required
+                </span>
+              </div>
+              <div class="form-group" [ngClass]="{'has-error': changePasswordForm.get('newPassword').errors && changePasswordForm.get('newPassword').touched}">
+                <input type="password" class="form-control" autocomplete="new-password" placeholder="New Password" formControlName="newPassword">
+                <span class="help-block" *ngIf="changePasswordForm.get('newPassword').hasError('required') && changePasswordForm.get('newPassword').touched">
+                  New Password is required
+                </span>
+                <span class="help-block" *ngIf="changePasswordForm.get('newPassword').hasError('minlength') && changePasswordForm.get('newPassword').touched">
+                  Password must be at least 6 characters
+                </span>
+                <span class="help-block" *ngIf="changePasswordForm.get('newPassword').hasError('maxlength') && changePasswordForm.get('newPassword').touched">
+                  Password cannot exceed 32 characters
+                </span>
+              </div>
+              <div class="form-group" [ngClass]="{'has-error': changePasswordForm.get('confirmPassword').errors
+                && changePasswordForm.get('confirmPassword').touched || changePasswordForm.get('confirmPassword').touched
+                && changePasswordForm.hasError('mismatch')}">
+                <input type="password" class="form-control" autocomplete="confirm-password" placeholder="Confirm Password" formControlName="confirmPassword">
+                <span class="help-block" *ngIf="changePasswordForm.get('confirmPassword').hasError('required') && changePasswordForm.get('confirmPassword').touched">
+                  Confirm password is required
+                </span>
+                <span class="help-block" *ngIf="changePasswordForm.get('confirmPassword').touched
+                  && changePasswordForm.hasError('mismatch')">
+                  Confirm password must match password
+                </span>
+              </div>
+              <div class="form-group text-center">
+                <button class="btn btn-success" [disabled]="!changePasswordForm.valid" type="submit">Change Password</button>
+                <button class="btn btn-default" type="button" (click)="changePasswordForm.reset()">Clear</button>
+              </div>
+            </form>
+          </tab>
+        </tabset>
+      </div>
+    </div>
+  </div>
+</div>

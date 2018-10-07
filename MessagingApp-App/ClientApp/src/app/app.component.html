@@ -1,0 +1,7 @@
+<main>
+  <app-side-nav *ngIf="loggedIn()"></app-side-nav>
+  <app-top-nav></app-top-nav>
+  <div id="app-content">
+    <router-outlet></router-outlet>
+  </div>
+</main>

@@ -1,0 +1,25 @@
+<div class="container">
+  <p *ngIf="!ready">
+    Loading...
+  </p>
+  <div *ngIf="ready">
+    <form [formGroup]="conversationForm" (ngSubmit)="createConversation()">
+      <h2 class="text-center text-primary">Create Conversation</h2>
+      <hr>
+      <!-- users -->
+      <h5>Users</h5>
+      <div class="form-group col-sm-12">
+        <ng-multiselect-dropdown [placeholder]="'Select Users'"
+                                 [data]="users"
+                                 [(ngModel)]="selectedUsers"
+                                 [settings]="dropdownSettings"
+                                 formControlName="users"
+                                 id="users">
+        </ng-multiselect-dropdown>
+      </div>
+      <div class="form-group text-center">
+        <button class="btn btn-success" [disabled]="!conversationForm.valid" type="submit">Create</button>
+      </div>
+    </form>
+  </div>
+</div>

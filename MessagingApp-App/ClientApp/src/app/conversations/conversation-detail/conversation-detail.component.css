@@ -1,0 +1,40 @@
+#message-log {
+  height: calc((100vh - 52px) * .8);
+  padding-top: 15px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#new-message {
+  height: calc((100vh - 52px) * .2);
+  padding-bottom: 15px;
+}
+
+  #new-message > textarea {
+    resize: none;
+    height: 100%;
+  }
+
+  #new-message > span {
+    padding: 0;
+    background-color: #337ab7;
+    -ms-border-radius: 0 4px 4px 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+    #new-message > span > button {
+      height: 100%;
+      width: 100%;
+      -ms-border-radius: 0 4px 4px 0;
+      border-radius: 0 4px 4px 0;
+    }
+
+/*.this-user {
+  position: absolute;
+  right: 0;
+}
+
+.that-user {
+  position: absolute;
+  left: 0;
+}*/

@@ -1,0 +1,33 @@
+import { Component, OnInit, ViewEncapsulation } from "@angular/core";
+import { AuthService } from "./_services/auth.service";
+import { User } from "./_models/user";
+import { JwtHelperService } from "@auth0/angular-jwt";
+
+@Component({
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"],
+  encapsulation: ViewEncapsulation.None
+})
+export class AppComponent implements OnInit {
+
+  constructor(private authService: AuthService,
+    private jwtHelperService: JwtHelperService) {
+  }
+
+  ngOnInit() {
+    const token = localStorage.getItem("token");
+    const user = JSON.parse(localStorage.getItem("user")) as User;
+
+    if (token) {
+      this.authService.decodedToken = this.jwtHelperService.decodeToken(token);
+    }
+    if (user) {
+      this.authService.currentUser = user;
+    }
+  }
+
+  loggedIn(): boolean {
+    return this.authService.loggedIn();
+  }
+}

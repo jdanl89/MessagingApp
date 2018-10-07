@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2003
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessagingApp.ApiContext", "MessagingApp-ApiContext\MessagingApp.ApiContext.csproj", "{23DBADB1-3E5D-4944-BE63-031ABB332C4D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessagingApp.App", "MessagingApp-App\MessagingApp.App.csproj", "{EA4EDA51-4BDA-4FB8-B262-5851EBA9BE6F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{23DBADB1-3E5D-4944-BE63-031ABB332C4D} = {23DBADB1-3E5D-4944-BE63-031ABB332C4D}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{23DBADB1-3E5D-4944-BE63-031ABB332C4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23DBADB1-3E5D-4944-BE63-031ABB332C4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23DBADB1-3E5D-4944-BE63-031ABB332C4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23DBADB1-3E5D-4944-BE63-031ABB332C4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA4EDA51-4BDA-4FB8-B262-5851EBA9BE6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA4EDA51-4BDA-4FB8-B262-5851EBA9BE6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA4EDA51-4BDA-4FB8-B262-5851EBA9BE6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA4EDA51-4BDA-4FB8-B262-5851EBA9BE6F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {37058F66-7E9F-4C52-B7A9-DC20A6E4C736}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,13 @@
+<div id="message-log" #messageLog class="container-fluid">
+  <div *ngIf="conversation.messages.length === 0"></div>
+  <div class="container-fluid" *ngFor="let message of conversation.messages">
+    <app-message-list [message]="message" (messageDeletion)="deleteMessage($event)" (messageReaction)="updateMessageReaction($event)"></app-message-list>
+  </div>
+</div>
+
+<div id="new-message" class="container-fluid input-group" [formGroup]="messageForm">
+  <textarea class="form-control" formControlName="message" maxlength="500"></textarea>
+  <span id="sendBtn" class="input-group-addon">
+    <button class="btn btn-primary" type="button" (click)="sendMessage()" [disabled]="!canSendMessage && !messageForm.valid">Send</button>
+  </span>
+</div>

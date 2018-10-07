@@ -1,0 +1,54 @@
+
+@media (min-width: 768px) {
+  #app-content {
+    width: calc(100% - 250px);
+    position: absolute;
+    left: 250px;
+    top: 52px;
+    min-height: calc(100% - 52px);
+  }
+
+  #app-content :nth-child(2) {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  app-side-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    z-index: 1000;
+  }
+
+  app-top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    padding: 0;
+    margin: 0;
+    z-index: 1;
+  }
+}
+
+
+@media (max-width: 767.5px) {
+  /* On small screens, the nav menu spans the full width of the screen. Leave a space for it. */
+  .body-content {
+    padding-top: 50px;
+  }
+
+  #app-content {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 52px;
+    min-height: calc(100% - 52px);
+  }
+
+  app-top-nav {
+    visibility: hidden;
+  }
+}

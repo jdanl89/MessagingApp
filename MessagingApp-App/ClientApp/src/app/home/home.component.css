@@ -1,0 +1,16 @@
+@media(min-width: 768px) {
+  #loginOrCreate {
+    width: 100% !important;
+    padding-right: 250px !important;
+  }
+
+  #loginForm {
+    display: none;
+  }
+}
+
+@media(max-width: 767px) {
+  #loginOrcreate {
+    visibility: hidden;
+  }
+}
